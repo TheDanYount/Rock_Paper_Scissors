@@ -11,11 +11,10 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    let choiceVerified = false,
-    while(!choiceVerifeid) {
+    let choiceVerified = false;
+    while(!choiceVerified) {
         let input = prompt("Choose Rock, Paper, or Scissors.");
         if(typeof(input) == "string") {
-            console.log("Success!");
             switch(input.toLowerCase()) {
                 case "rock":
                     choiceVerified = true;
@@ -27,9 +26,6 @@ function getPlayerChoice() {
                     choiceVerified = true;
                     return "Scissors";
             }
-        }
-        else {
-            console.log("Failure!");
         }
     }
 }
