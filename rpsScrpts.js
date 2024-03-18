@@ -33,3 +33,26 @@ function getPlayerChoice() {
         }
     }
 }
+
+function playRound() {
+    let computerSelection = getComputerChoice(),
+        playerSelection = getPlayerChoice();
+    if(((playerSelection == "Rock") && (computerSelection == "Scissors")) ||
+    ((playerSelection == "Paper") && (computerSelection == "Rock")) ||
+    ((playerSelection == "Scissors") && (computerSelection == "Paper"))) {
+        let message = `You win! ${playerSelection} beats ${computerSelection}`;
+        return message;
+    }
+    else if(((computerSelection == "Rock") && (playerSelection == "Scissors")) ||
+    ((computerSelection == "Paper") && (playerSelection == "Rock")) ||
+    ((computerSelection == "Scissors") && (playerSelection == "Paper"))) {
+        let message = `You lose! ${playerSelection} loses to ${computerSelection}`;
+        return message;
+    }
+    else {
+        let message = `You tied. ${playerSelection} ties ${computerSelection}`;
+        return message;
+    }
+}
+
+console.log(playRound())
