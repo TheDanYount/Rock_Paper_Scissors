@@ -36,19 +36,48 @@ function playRound() {
     if(((playerSelection == "Rock") && (computerSelection == "Scissors")) ||
     ((playerSelection == "Paper") && (computerSelection == "Rock")) ||
     ((playerSelection == "Scissors") && (computerSelection == "Paper"))) {
-        let message = `You win! ${playerSelection} beats ${computerSelection}`;
+        let message = "win";
         return message;
     }
     else if(((computerSelection == "Rock") && (playerSelection == "Scissors")) ||
     ((computerSelection == "Paper") && (playerSelection == "Rock")) ||
     ((computerSelection == "Scissors") && (playerSelection == "Paper"))) {
-        let message = `You lose! ${playerSelection} loses to ${computerSelection}`;
+        let message = "loss";
         return message;
     }
     else {
-        let message = `You tied. ${playerSelection} ties ${computerSelection}`;
+        let message = "tie";
         return message;
     }
 }
 
-console.log(playRound())
+function playGame() {
+    let wins = 0,
+        losses = 0,
+        ties = 0;
+    for(i = 0; i < 5; i++) {
+        let result = playRound();
+        switch(result) {
+            case "win":
+                wins++;
+                break;
+            case "loss":
+                losses++;
+                break;
+            case "tie":
+                ties++;
+                break;
+        }
+    }
+    if(wins > losses) {
+        return `Player won ${wins} to ${losses} (with ${ties} tie(s))!`;
+    }
+    else if (wins < losses) {
+        return `Player lost ${wins} to ${losses} (with ${ties} tie(s))!`;
+    }
+    else {
+        return `Player tied ${wins} to ${losses} (with ${ties} tie(s))!`;
+    }
+}
+
+console.log(playGame())
